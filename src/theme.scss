@@ -1,0 +1,26 @@
+@use "@angular/material" as mat;
+
+// Include non-theme styles for core.
+@include mat.core();
+
+// Define a theme.
+$primary: mat.define-palette(mat.$cyan-palette, 600, 400, 700);
+$accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
+$warn: mat.define-palette(mat.$red-palette, 700, 400, 700);
+
+$theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+// Include all theme styles for the components.
+@include mat.all-component-themes($theme);
+
+@include mat.typography-hierarchy($theme);

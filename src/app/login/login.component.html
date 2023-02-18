@@ -1,0 +1,59 @@
+<div class="login-page">
+  <form class="login-form">
+    <mat-card class="login-form-card">
+      <mat-card-content>
+        <mat-label *ngIf="loginFailed" class="warn-label">
+          Login failed. Please make sure your credential are correct.
+        </mat-label>
+
+        <mat-form-field appearance="fill" class="form-field" id="email-input">
+          <mat-label>Enter your email</mat-label>
+          <input
+            [formControl]="email"
+            [placeholder]="emailPlaceholder"
+            matInput
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field
+          (keyup.enter)="!isLoginDisabled ? login() : undefined"
+          appearance="fill"
+          class="form-field"
+        >
+          <mat-label>Enter your password</mat-label>
+          <input
+            [formControl]="password"
+            [type]="hidePassword ? 'password' : 'text'"
+            matInput
+            required
+          />
+          <button
+            (click)="toggleHidePassword()"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword"
+            [tabIndex]="-1"
+            mat-icon-button
+            matSuffix
+            type="button"
+          >
+            <mat-icon>{{
+              hidePassword ? "visibility_off" : "visibility"
+              }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button
+          (click)="login()"
+          [disabled]="isLoginDisabled"
+          color="primary"
+          id="login-button"
+          mat-raised-button
+          type="button"
+        >
+          Login
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>

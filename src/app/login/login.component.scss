@@ -1,0 +1,42 @@
+@import "../../variables";
+
+.login-page {
+  height: 100%;
+  width: 100%;
+}
+
+.login-form {
+  display: flex;
+  height: 75%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .login-form-card {
+    > mat-card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .mat-form-field {
+    width: 256px;
+  }
+
+  .warn-label {
+    width: 256px;
+    text-align: center;
+    color: $warn;
+  }
+
+  #email-input {
+    margin-top: 16px;
+  }
+
+  #login-button {
+    width: 80px;
+    margin-top: 8px;
+  }
+}
