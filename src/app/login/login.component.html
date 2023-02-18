@@ -1,9 +1,12 @@
 <div class="login-page">
   <form class="login-form">
+    <mat-label *ngIf="loginFailed" class="warn-label">
+      Login failed. Please make sure your credential are correct.
+    </mat-label>
+
     <mat-form-field appearance="fill" class="form-field">
       <mat-label>Enter your email</mat-label>
       <input
-        autocomplete="email"
         [formControl]="email"
         [placeholder]="emailPlaceholder"
         matInput
@@ -11,10 +14,13 @@
       />
     </mat-form-field>
 
-    <mat-form-field appearance="fill" class="form-field" (keyup.enter)="login()">
+    <mat-form-field
+      (keyup.enter)="!isLoginDisabled ? login() : undefined"
+      appearance="fill"
+      class="form-field"
+    >
       <mat-label>Enter your password</mat-label>
       <input
-        [autocomplete]="'current-password'"
         [formControl]="password"
         [type]="hidePassword ? 'password' : 'text'"
         matInput
@@ -37,6 +43,7 @@
 
     <button
       (click)="login()"
+      [disabled]="isLoginDisabled"
       color="primary"
       id="login-button"
       mat-raised-button

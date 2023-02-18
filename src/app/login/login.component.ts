@@ -70,11 +70,14 @@ export class LoginComponent {
   }
 
   private loginFormReset(): void {
-    this.email.reset();
     this.password.reset();
   }
 
-  toggleHidePassword() {
+  toggleHidePassword(): void {
     this.hidePassword = !this.hidePassword;
+  }
+
+  get isLoginDisabled(): boolean {
+    return !this.email.valid || !this.password.valid;
   }
 }
