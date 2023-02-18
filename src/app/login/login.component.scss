@@ -12,6 +12,15 @@
   justify-content: center;
   align-items: center;
 
+  .login-form-card {
+    > mat-card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   .mat-form-field {
     width: 256px;
   }
@@ -19,8 +28,11 @@
   .warn-label {
     width: 256px;
     text-align: center;
-    margin-bottom: 16px;
     color: $warn;
+  }
+
+  #email-input {
+    margin-top: 16px;
   }
 
   #login-button {
