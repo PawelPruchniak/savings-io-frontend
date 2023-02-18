@@ -1,0 +1,21 @@
+.login-page {
+  height: 100%;
+  width: 100%;
+}
+
+.login-form {
+  display: flex;
+  height: 75%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .mat-form-field {
+    width: 256px;
+  }
+
+  #login-button {
+    width: 80px;
+    margin-top: 8px;
+  }
+}

@@ -1,0 +1,48 @@
+<div class="login-page">
+  <form class="login-form">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Enter your email</mat-label>
+      <input
+        autocomplete="email"
+        [formControl]="email"
+        [placeholder]="emailPlaceholder"
+        matInput
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Enter your password</mat-label>
+      <input
+        [autocomplete]="'current-password'"
+        [formControl]="password"
+        [type]="hidePassword ? 'password' : 'text'"
+        matInput
+        required
+      />
+      <button
+        (click)="toggleHidePassword()"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hidePassword"
+        [tabIndex]="-1"
+        mat-icon-button
+        matSuffix
+        type="button"
+      >
+        <mat-icon>{{
+          hidePassword ? "visibility_off" : "visibility"
+        }}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button
+      (click)="login()"
+      color="primary"
+      id="login-button"
+      mat-raised-button
+      type="button"
+    >
+      Login
+    </button>
+  </form>
+</div>

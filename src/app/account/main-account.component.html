@@ -1,0 +1,11 @@
+<p>main-account works!</p>
+<div>
+  <div>
+    {{
+      "Your balance is: " +
+        this.userAccount?.totalBalance +
+        this.userAccount?.currency
+    }}
+  </div>
+  <button (click)="logout()">Logout</button>
+</div>

@@ -1,0 +1,8 @@
+.spinner-card {
+  height: fit-content;
+  width: fit-content;
+  > mat-card-content {
+    display: flex;
+    justify-content: center;
+  }
+}
