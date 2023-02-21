@@ -23,9 +23,7 @@ import { SpinnerModule } from './shared/spinner/spinner.module';
     MatProgressSpinnerModule,
     SpinnerModule,
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-  ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

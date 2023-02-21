@@ -9,18 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  readonly emailPlaceholder: string = 'jan.kowalsky@gmail.com';
+  readonly emailPlaceholder: string = 'john.kowalsky@gmail.com';
 
   email: FormControl;
   password: FormControl;
   hidePassword = true;
   loginFailed = false;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private router: Router
-  ) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
     this.email = new FormControl('', [Validators.required, Validators.email]);
     this.password = new FormControl('', [Validators.required]);
   }
@@ -33,9 +29,7 @@ export class LoginComponent {
     if (this.email.valid && this.password.valid) {
       this.authService
         .login(this.email.value, this.password.value)
-        .then((result: boolean) =>
-          result ? this.onLoginSuccess() : this.onLoginFailed()
-        )
+        .then((result: boolean) => (result ? this.onLoginSuccess() : this.onLoginFailed()))
         .catch((error) => {
           console.debug('Error during login: ' + JSON.stringify(error));
           this.onLoginFailed();

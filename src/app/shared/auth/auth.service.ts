@@ -16,10 +16,7 @@ export class AuthService {
   public async login(username: string, password: string): Promise<boolean> {
     let jwtToken: JwtToken | undefined;
     try {
-      jwtToken = await firstValueFrom(
-        this.authApiGateway.login(username, password),
-        { defaultValue: undefined }
-      );
+      jwtToken = await firstValueFrom(this.authApiGateway.login(username, password), { defaultValue: undefined });
     } catch (e) {
       return false;
     }
@@ -42,9 +39,7 @@ export class AuthService {
 
   public isLoggedIn(): boolean {
     const expiration = this.getExpiration();
-    const isLoggedIn: boolean = expiration
-      ? moment().isBefore(expiration)
-      : false;
+    const isLoggedIn: boolean = expiration ? moment().isBefore(expiration) : false;
 
     if (!isLoggedIn) {
       this.clearSession();
@@ -68,10 +63,7 @@ export class AuthService {
     const expiresAt = moment().add(jwtToken.expirationInSeconds, 'seconds');
 
     localStorage.setItem(AuthService.ID_TOKEN, jwtToken.jwtToken);
-    localStorage.setItem(
-      AuthService.EXPIRES_AT,
-      JSON.stringify(expiresAt.valueOf())
-    );
+    localStorage.setItem(AuthService.EXPIRES_AT, JSON.stringify(expiresAt.valueOf()));
   }
 
   private clearSession(): void {
