@@ -25,8 +25,7 @@ export class MainAccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.accountApiGateway.getUserAccount().subscribe({
-      next: (userAccount: UserAccount) =>
-        (this.userAccount = { ...userAccount }),
+      next: (userAccount: UserAccount) => (this.userAccount = { ...userAccount }),
       error: (error: HttpErrorResponse) => {
         if (error.status === 401) {
           this.logout();

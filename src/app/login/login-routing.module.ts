@@ -9,8 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'account',
-    loadChildren: () =>
-      import('../account/main-account.module').then((m) => m.MainAccountModule),
+    loadChildren: () => import('../account/main-account.module').then((m) => m.MainAccountModule),
   },
 ];
 
