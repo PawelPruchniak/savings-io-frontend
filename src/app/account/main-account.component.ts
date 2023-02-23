@@ -16,7 +16,7 @@ export class MainAccountComponent implements OnInit {
   constructor(
     private accountApiGateway: AccountApiGatewayService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) {
     if (authService.isLoggedOut()) {
       router.navigateByUrl('login');
