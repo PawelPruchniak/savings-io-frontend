@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountApiGatewayService } from './account-api-gateway/account-api-gateway.service';
 import { UserAccount } from '@savings-io/shared/model';
 import { Router } from '@angular/router';
 import { AuthService } from '@savings-io/shared/auth';
-import { HttpErrorResponse } from '@angular/common/http';
+import { AccountApiGatewayService } from '../account/account-api-gateway/account-api-gateway.service';
 import { RouterPaths } from '@savings-io/router-paths';
 
 @Component({
-  selector: 'savings-io-main-account',
-  templateUrl: './main-account.component.html',
-  styleUrls: ['./main-account.component.scss'],
+  selector: 'savings-io-board',
+  templateUrl: './board.component.html',
+  styleUrls: ['./board.component.scss'],
 })
-export class MainAccountComponent implements OnInit {
+export class BoardComponent implements OnInit {
   userAccount?: UserAccount;
 
   constructor(
@@ -19,20 +18,14 @@ export class MainAccountComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
   ) {
+    console.log('constructor');
     if (authService.isLoggedOut()) {
       router.navigateByUrl(RouterPaths.LOGIN);
     }
   }
 
   ngOnInit(): void {
-    this.accountApiGateway.getUserAccount().subscribe({
-      next: (userAccount: UserAccount) => (this.userAccount = { ...userAccount }),
-      error: (error: HttpErrorResponse) => {
-        if (error.status === 401) {
-          this.logout();
-        }
-      },
-    });
+    console.log('ng on init');
   }
 
   logout() {
