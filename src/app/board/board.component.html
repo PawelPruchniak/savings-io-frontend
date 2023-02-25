@@ -1,2 +1,9 @@
-<mat-toolbar class="navigation-toolbar"> Navigation toolbar </mat-toolbar>
-<div class="board">board content</div>
+<mat-toolbar class="navigation-toolbar">
+  <div class="navigation-tabs"></div>
+  <div class="navigation-logout">
+    <button (click)="logout()" color="primary" mat-raised-button type="button">Logout</button>
+  </div>
+</mat-toolbar>
+<div class="board">
+  board content
+</div>
