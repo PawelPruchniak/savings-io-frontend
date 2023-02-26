@@ -1,6 +1,15 @@
-<div>
-  <div>
-    {{ 'Your balance is: ' + this.userAccount?.totalBalance + this.userAccount?.currency }}
-  </div>
-  <button (click)="logout()">Logout</button>
-</div>
+<mat-card class="main-account-card">
+  <mat-card-content>
+    <div>
+      <div *ngIf="userAccountState.content$ | async as userAccount">
+        {{ 'Account balance: ' + userAccount.totalBalance + userAccount.currency }}
+      </div>
+      <div *ngIf="userAccountState.error$ | async as error">
+        <div *ngIf="error">Could not load main user account</div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-footer *ngIf="userAccountState.loading$ | async">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>

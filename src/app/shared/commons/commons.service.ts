@@ -15,7 +15,10 @@ export class CommonsService {
         startWith(true),
         catchError(() => of(false)),
       ),
-      error$: data$.pipe(catchError((e) => of(e))),
+      error$: data$.pipe(
+        map(() => undefined),
+        catchError((e) => of(e)),
+      ),
     } as ObjectState<any>;
   }
 }

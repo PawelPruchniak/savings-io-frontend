@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '@savings-io/shared/auth';
 import { RouterPaths } from '@savings-io/router-paths';
 import { AccountService } from './account-api-gateway/account.service';
+import { ObjectState } from '@savings-io/shared/commons';
 
 @Component({
   selector: 'savings-io-main-account',
@@ -11,7 +12,7 @@ import { AccountService } from './account-api-gateway/account.service';
   styleUrls: ['./main-account.component.scss'],
 })
 export class MainAccountComponent implements OnInit {
-  userAccount?: UserAccount;
+  userAccountState: ObjectState<UserAccount> = {} as ObjectState<UserAccount>;
 
   constructor(private accountService: AccountService, private authService: AuthService, private router: Router) {
     if (authService.isLoggedOut()) {
@@ -20,18 +21,6 @@ export class MainAccountComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.accountApiGateway.getUserAccount().subscribe({
-    //   next: (userAccount: UserAccount) => (this.userAccount = { ...userAccount }),
-    //   error: (error: HttpErrorResponse) => {
-    //     if (error.status === 401) {
-    //       this.logout();
-    //     }
-    //   },
-    // });
-  }
-
-  logout() {
-    this.authService.logout();
-    this.router.navigateByUrl(RouterPaths.LOGIN);
+    this.userAccountState = this.accountService.getUserAccount();
   }
 }
