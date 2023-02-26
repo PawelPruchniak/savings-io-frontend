@@ -26,6 +26,9 @@
       "@savings-io/shared/auth": [
         "shared/auth/index.ts"
       ],
+      "@savings-io/shared/commons": [
+        "shared/commons/index.ts"
+      ],
       "@savings-io/shared/model": [
         "shared/model/index.ts"
       ],

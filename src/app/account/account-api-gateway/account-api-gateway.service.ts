@@ -11,8 +11,8 @@ export class AccountApiGatewayService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getUserAccount(): Observable<UserAccount> {
-    console.debug('Getting user account...');
+  fetchUserAccount(): Observable<UserAccount> {
+    console.debug('Fetching user account...');
 
     return this.httpClient.get<UserAccount>(this.userAccountUrl);
   }
