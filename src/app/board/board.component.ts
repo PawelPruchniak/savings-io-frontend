@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UserAccount } from '@savings-io/shared/model';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@savings-io/shared/auth';
 import { AccountApiGatewayService } from '../account/account-api-gateway/account-api-gateway.service';
 import { RouterPaths } from '@savings-io/router-paths';
@@ -10,26 +9,26 @@ import { RouterPaths } from '@savings-io/router-paths';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
 })
-export class BoardComponent implements OnInit {
-  userAccount?: UserAccount;
-
+export class BoardComponent {
   constructor(
     private accountApiGateway: AccountApiGatewayService,
     private authService: AuthService,
     private router: Router,
+    private route: ActivatedRoute,
   ) {
-    console.log('constructor');
     if (authService.isLoggedOut()) {
       router.navigateByUrl(RouterPaths.LOGIN);
+    } else {
+      this.navigateToMainAccount();
     }
-  }
-
-  ngOnInit(): void {
-    console.log('ng on init');
   }
 
   logout() {
     this.authService.logout();
     this.router.navigateByUrl(RouterPaths.LOGIN);
+  }
+
+  navigateToMainAccount() {
+    this.router.navigate([RouterPaths.MAIN_ACCOUNT], { relativeTo: this.route });
   }
 }
