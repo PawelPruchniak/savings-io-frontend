@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { LoginComponent } from './login.component';
+import { RouterPaths } from '@savings-io/router-paths';
 
 const routes: Routes = [
   {
@@ -8,8 +9,8 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'account',
-    loadChildren: () => import('../account/main-account.module').then((m) => m.MainAccountModule),
+    path: RouterPaths.BOARD,
+    loadChildren: () => import('board/board.module').then((m) => m.BoardModule),
   },
 ];
 

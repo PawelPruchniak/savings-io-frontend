@@ -1,0 +1,19 @@
+@import '../../variables';
+
+.navigation-toolbar {
+  height: 64px;
+  color: $primary;
+
+  .navigation-tabs {
+    width: calc(100% - 80px);
+  }
+
+  .navigation-logout {
+    width: 80px;
+  }
+}
+
+.board {
+  height: 100%;
+  padding: 16px 32px 16px 32px;
+}

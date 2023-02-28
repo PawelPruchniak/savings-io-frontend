@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '@savings-io/shared/auth';
 import { Router } from '@angular/router';
+import { RouterPaths } from '@savings-io/router-paths';
 
 @Component({
   selector: 'savings-io-root',
@@ -12,9 +13,9 @@ export class AppComponent {
 
   constructor(private authService: AuthService, private router: Router) {
     if (authService.isLoggedIn()) {
-      router.navigateByUrl('account');
+      router.navigateByUrl(RouterPaths.BOARD);
     } else {
-      router.navigateByUrl('login');
+      router.navigateByUrl(RouterPaths.LOGIN);
     }
   }
 }

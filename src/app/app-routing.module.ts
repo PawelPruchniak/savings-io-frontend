@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RouterPaths } from '@savings-io/router-paths';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: RouterPaths.LOGIN,
     loadChildren: () => import('./login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'account',
-    loadChildren: () => import('./account/main-account.module').then((m) => m.MainAccountModule),
+    path: RouterPaths.BOARD,
+    loadChildren: () => import('board/board.module').then((m) => m.BoardModule),
   },
 ];
 

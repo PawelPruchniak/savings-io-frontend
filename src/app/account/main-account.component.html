@@ -1,7 +1,25 @@
-<p>main-account works!</p>
-<div>
-  <div>
-    {{ 'Your balance is: ' + this.userAccount?.totalBalance + this.userAccount?.currency }}
-  </div>
-  <button (click)="logout()">Logout</button>
+<div class="dashboard">
+  <mat-card class="main-account-card">
+    <mat-card-content>
+      <mat-card-title id="title">
+        {{ 'Balance' }}
+      </mat-card-title>
+      <mat-divider id="divider"></mat-divider>
+      <mat-card-content id="balance">
+        <div>
+          <div *ngIf="userAccountState.content$ | async as userAccount">
+            {{ userAccount.totalBalance + ' ' + userAccount.currency }}
+          </div>
+          <div *ngIf="userAccountState.error$ | async as error">
+            <mat-icon color="warn" [matTooltip]="'Could not get account balance'" [matTooltipPosition]="'right'"
+              >error_outline
+            </mat-icon>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card-content>
+    <mat-card-footer *ngIf="userAccountState.loading$ | async">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
 </div>

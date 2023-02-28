@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '@savings-io/shared/auth';
 import { Router } from '@angular/router';
+import { RouterPaths } from '@savings-io/router-paths';
 
 @Component({
   selector: 'savings-io-login',
@@ -41,7 +42,7 @@ export class LoginComponent {
     console.log('Login success');
 
     this.router
-      .navigateByUrl('account')
+      .navigateByUrl(RouterPaths.BOARD)
       .then(() => console.debug('Navigate success'))
       .catch((error) => console.debug('Navigate failed: ' + error));
   }
