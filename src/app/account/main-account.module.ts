@@ -6,6 +6,8 @@ import { SpinnerModule } from '../shared/spinner/spinner.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   imports: [
@@ -16,6 +18,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatCardModule,
     MatProgressBarModule,
     MatDividerModule,
+    MatIconModule,
+    MatTooltipModule,
   ],
   declarations: [MainAccountComponent],
 })

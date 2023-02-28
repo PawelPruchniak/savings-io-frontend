@@ -11,7 +11,9 @@
             {{ userAccount.totalBalance + ' ' + userAccount.currency }}
           </div>
           <div *ngIf="userAccountState.error$ | async as error">
-            <div *ngIf="error">Could not load main user account</div>
+            <mat-icon color="warn" [matTooltip]="'Could not get account balance'" [matTooltipPosition]="'right'"
+              >error_outline
+            </mat-icon>
           </div>
         </div>
       </mat-card-content>
