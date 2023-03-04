@@ -11,7 +11,7 @@
             {{ userAccount.totalBalance + ' ' + userAccount.currency }}
           </div>
           <div *ngIf="userAccountState.error$ | async as error">
-            <mat-icon color="warn" [matTooltip]="'Could not get account balance'" [matTooltipPosition]="'right'"
+            <mat-icon [matTooltipPosition]="'right'" [matTooltip]="'Could not get account balance'" color="warn"
               >error_outline
             </mat-icon>
           </div>
@@ -22,4 +22,11 @@
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </mat-card-footer>
   </mat-card>
+  <div *ngIf="userAccountState.content$ | async as userAccount">
+    <div class="sub-accounts">
+      <div *ngFor="let accountId of userAccount.subAccountsIds">
+        <savings-io-account-card [accountId]="accountId"> </savings-io-account-card>
+      </div>
+    </div>
+  </div>
 </div>
