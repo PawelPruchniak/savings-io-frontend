@@ -9,6 +9,7 @@
 .main-account-card {
   height: 80px;
   width: 256px;
+  background-image: linear-gradient(to bottom right, $very-light-grey, $light-grey);
 
   > mat-card-content {
     height: calc(100% - 4px);
