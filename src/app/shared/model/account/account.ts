@@ -16,3 +16,12 @@ export interface SavingsAccount extends Account {
   currency: string;
   balance: number;
 }
+
+export interface InvestmentAccount extends Account {
+  asset: string;
+  assetQuantity: number;
+  currencyInvested: string;
+  amountInvested: number;
+  investmentResultValue: number;
+  investmentResultPercentage: number;
+}
