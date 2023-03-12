@@ -9,4 +9,6 @@
 <div *ngIf="accountState.content$ | async as account">
   <savings-io-savings-card *ngIf="account.accountType === 'SAVINGS'" [savingsAccount]="account">
   </savings-io-savings-card>
+  <savings-io-investment-card *ngIf="account.accountType === 'INVESTMENT'" [investmentAccount]="account">
+  </savings-io-investment-card>
 </div>
