@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import 'variables.scss';
 
 html {
   height: 100%;
@@ -12,4 +13,15 @@ body {
 
 .h-100 {
   height: 100%;
+}
+
+// Application component styles
+
+.divider {
+  background: $primary;
+  margin-bottom: 16px !important;
+}
+
+.op-75 {
+  opacity: 75%;
 }
