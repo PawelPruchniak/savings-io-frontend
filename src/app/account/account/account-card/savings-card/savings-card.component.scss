@@ -1,0 +1,42 @@
+@import '../../../../../variables';
+
+.savings-card {
+  width: 256px;
+  background-image: linear-gradient(to bottom right, $very-light-grey, $light-grey);
+
+  > mat-card-content {
+    height: calc(100% - 4px);
+
+    #title {
+      font-size: 16px;
+    }
+
+    #divider {
+      background: $primary;
+      opacity: 75%;
+      margin-bottom: 16px;
+    }
+
+    #content {
+      font-size: 20px;
+      font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+      font-weight: 700;
+      margin-top: 4px;
+
+      #balance {
+        display: flex;
+
+        #show-desc-icon {
+          margin-left: auto;
+        }
+      }
+
+      #description {
+        font-size: 14px;
+        font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+        font-weight: normal;
+        margin-top: 8px;
+      }
+    }
+  }
+}

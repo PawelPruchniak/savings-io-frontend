@@ -1,14 +1,12 @@
 <div class="account-card">
-  <div *ngIf="accountState.content$ | async as account">
-    {{ 'accountId: ' + account.accountId }}
-    {{ 'name: ' + account.name }}
-    {{ 'description: ' + account.description }}
-    {{ 'accountType: ' + account.accountType }}
-  </div>
   <div *ngIf="accountState.loading$ | async as error">
     {{ 'loading...' }}
   </div>
   <div *ngIf="accountState.error$ | async as account">
     {{ 'Could not get account balance' }}
   </div>
+</div>
+<div *ngIf="accountState.content$ | async as account">
+  <savings-io-savings-card *ngIf="account.accountType === 'SAVINGS'" [savingsAccount]="account">
+  </savings-io-savings-card>
 </div>

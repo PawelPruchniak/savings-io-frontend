@@ -1,0 +1,25 @@
+<mat-card class="savings-card">
+  <mat-card-content>
+    <mat-card-title id="title">
+      {{ savingsAccount.name }}
+    </mat-card-title>
+    <mat-divider id="divider"></mat-divider>
+    <mat-card-content id="content">
+      <div id="balance">
+        {{ savingsAccount.balance + ' ' + savingsAccount.currency }}
+        <mat-icon
+          (click)="toggleShowDescription()"
+          *ngIf="canShowDescription"
+          [matTooltipPosition]="'below'"
+          [matTooltip]="getShowDescriptionIconTooltip"
+          color="primary"
+          id="show-desc-icon"
+          >{{ this.showDescription ? '^' : 'v' }}
+        </mat-icon>
+      </div>
+      <div *ngIf="showDescription" id="description">
+        {{ savingsAccount.description }}
+      </div>
+    </mat-card-content>
+  </mat-card-content>
+</mat-card>
