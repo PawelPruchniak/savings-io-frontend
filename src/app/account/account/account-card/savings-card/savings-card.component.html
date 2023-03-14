@@ -7,7 +7,6 @@
     <mat-card-content id="content">
       <div id="balance">
         {{ savingsAccount.balance + ' ' + savingsAccount.currency }}
-        <!-- todo: add icon for show description-->
         <mat-icon
           (click)="toggleShowDescription()"
           *ngIf="canShowDescription"
@@ -15,7 +14,7 @@
           [matTooltip]="getShowDescriptionIconTooltip"
           color="primary"
           id="show-desc-icon"
-          >{{ this.showDescription ? '^' : 'v' }}
+          >{{ showDescription ? 'arrow_drop_up' : 'arrow_drop_down' }}
         </mat-icon>
       </div>
       <div *ngIf="showDescription" id="description">
