@@ -5,6 +5,29 @@
       {{ investmentAccount.name }}
     </mat-card-title>
     <mat-divider class="divider op-75"></mat-divider>
-    <mat-card-content id="content"> </mat-card-content>
+    <mat-card-content id="content">
+      <div id="balance">
+        <div>
+          {{ investmentAccount.assetQuantity + ' ' + investmentAccount.asset }}
+        </div>
+        <div id="asset-value">
+          <!-- todo: add actual asset value -->
+          {{ '???' }}
+        </div>
+      </div>
+      <div id="investment-result">
+        <div id="invest-result" [class]="getTrendStyleIconClass">
+          <div id="invest-result-icon">
+            <mat-icon>{{ getTrendIcon }}</mat-icon>
+          </div>
+          <div id="invest-result-percent">
+            {{ investmentAccount.investmentResultPercentage + '%' }}
+          </div>
+        </div>
+        <div id="investment-result-value" [class]="getTrendStyleValueClass">
+          {{ investmentAccount.investmentResultValue }}
+        </div>
+      </div>
+    </mat-card-content>
   </mat-card-content>
 </mat-card>

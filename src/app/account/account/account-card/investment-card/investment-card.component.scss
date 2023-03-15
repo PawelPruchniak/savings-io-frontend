@@ -16,6 +16,76 @@
       font-family: 'Roboto', 'Helvetica Neue', sans-serif;
       font-weight: 700;
       margin-top: 4px;
+
+      #balance {
+        display: flex;
+
+        #asset-value {
+          margin-left: auto;
+        }
+      }
+
+      #investment-result {
+        height: 28px;
+        display: flex;
+        margin-top: 16px;
+        font-size: 14px;
+        align-items: center;
+
+        #investment-result-value {
+          margin-left: auto;
+        }
+      }
+
+      #invest-result {
+        width: fit-content;
+        border: solid 1px;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+
+        #invest-result-icon {
+          margin: 2px 4px 2px 8px;
+
+          > mat-icon {
+            display: flex;
+            height: 20px;
+            width: 20px;
+            font-size: 20px;
+          }
+        }
+
+        #invest-result-percent {
+          margin-right: 8px;
+        }
+      }
     }
   }
+}
+
+.investment-icon-loss {
+  background: $very-light-red;
+  color: $red;
+}
+
+.investment-icon-gain {
+  background: $very-light-green;
+  color: $green;
+}
+
+.investment-icon-neutral {
+  background: $very-light-grey;
+  color: white;
+}
+
+.investment-value-loss {
+  color: $light-red;
+}
+
+.investment-value-gain {
+  color: $light-green;
+}
+
+.investment-value-neutral {
+  color: white;
 }
