@@ -10,7 +10,7 @@ export class SavingsCardComponent {
   @Input()
   savingsAccount!: SavingsAccount;
 
-  showDescription: boolean = false;
+  showDescription = false;
 
   get canShowDescription(): boolean {
     return this.savingsAccount.description.length > 0;

@@ -14,7 +14,11 @@ import { ObjectState } from '@savings-io/shared/commons';
 export class MainAccountComponent implements OnInit {
   userAccountState: ObjectState<UserAccount> = {} as ObjectState<UserAccount>;
 
-  constructor(private accountService: AccountService, private authService: AuthService, private router: Router) {
+  constructor(
+    private accountService: AccountService,
+    authService: AuthService,
+    router: Router,
+  ) {
     if (authService.isLoggedOut()) {
       router.navigateByUrl(RouterPaths.LOGIN);
     }

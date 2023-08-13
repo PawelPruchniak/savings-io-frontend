@@ -1,57 +1,69 @@
 <div class="login-page">
-  <div class="login-banner">
-    <div id="banner-title">
-      <div class="banner-text">Manage your savings</div>
-      <div class="banner-text" id="animated-dot-container">
-        <div id="animated-dot">.</div>
-      </div>
-      <div class="banner-text">io</div>
+  <mat-card class="overview-panel">
+    <div class="savings-logo">
+      <img alt="Savings logo" height="32" ngSrc="assets/savings-logo.svg" width="32">
+      <span>
+        Savings
+      </span>
     </div>
-    <div class="banner-icons">
-      <mat-icon color="primary">account_balance</mat-icon>
-      <mat-icon>account_balance_wallet</mat-icon>
-      <mat-icon color="primary">payment</mat-icon>
-    </div>
-  </div>
-  <form class="login-form">
-    <mat-card class="login-form-card">
-      <mat-card-content>
-        <mat-label *ngIf="loginFailed" class="warn-label">
-          Login failed. Please make sure your credential are correct.
-        </mat-label>
+    <img alt="Budget image" class="overview-image" height="767" ngSrc="assets/Budget-1.png" width="689">
+    <h1 id="description-headline">Get better with money</h1>
+    <span id="description"> Savings-io is an app that helps users manage and monitor their assets.
+      It is designed to help users budget and plan for their financial future.
+      With Savings-io, users can set financial goals and track their progress towards achieving them.</span>
+  </mat-card>
+  <div class="login-panel">
+    <img alt="Savings logo" height="42" ngSrc="assets/savings-logo-blue.svg" style="margin: 16px;" width="42">
+    <h1>
+      Log In
+    </h1>
+    <span class="login-additional-text">
+      Create, monitor and save smarter
+    </span>
+    <form class="login-form">
+      <mat-card class="login-form-card">
+        <mat-card-content>
+          <mat-label *ngIf="isLoginFailed" class="warn-label">
+            Login failed. Please make sure your credential are correct.
+          </mat-label>
 
-        <mat-form-field appearance="fill" class="form-field" id="email-input">
-          <mat-label>Enter your email</mat-label>
-          <input [formControl]="email" [placeholder]="emailPlaceholder" matInput required />
-        </mat-form-field>
+          <mat-form-field appearance="fill" class="form-field" id="email-input">
+            <mat-label>Enter your email</mat-label>
+            <input [formControl]="email" [placeholder]="emailPlaceholder" matInput required/>
+          </mat-form-field>
 
-        <mat-form-field (keyup.enter)="!isLoginDisabled ? login() : undefined" appearance="fill" class="form-field">
-          <mat-label>Enter your password</mat-label>
-          <input [formControl]="password" [type]="hidePassword ? 'password' : 'text'" matInput required />
+          <mat-form-field (keyup.enter)="!isLoginDisabled ? login() : undefined" appearance="fill" id="password-input">
+            <mat-label>Enter your password</mat-label>
+            <input [formControl]="password" [type]="isHidePassword ? 'password' : 'text'" matInput required/>
+            <button
+              (click)="toggleHidePassword()"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="isHidePassword"
+              [tabIndex]="-1"
+              mat-icon-button
+              matSuffix
+              type="button"
+            >
+              <mat-icon>{{ isHidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+          </mat-form-field>
+
           <button
-            (click)="toggleHidePassword()"
-            [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hidePassword"
-            [tabIndex]="-1"
-            mat-icon-button
-            matSuffix
+            (click)="login()"
+            [disabled]="isLoginDisabled"
+            color="primary"
+            id="login-button"
+            mat-raised-button
             type="button"
           >
-            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            Login
           </button>
-        </mat-form-field>
-
-        <button
-          (click)="login()"
-          [disabled]="isLoginDisabled"
-          color="primary"
-          id="login-button"
-          mat-raised-button
-          type="button"
-        >
-          Login
-        </button>
-      </mat-card-content>
-    </mat-card>
-  </form>
+        </mat-card-content>
+        <mat-card-footer *ngIf="isLoginLoading" class="login-progress-bar">
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+      </mat-card>
+    </form>
+  </div>
 </div>
+

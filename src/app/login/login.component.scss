@@ -4,63 +4,19 @@
   height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: column;
-}
-
-.login-banner {
-  display: flex;
-  flex-direction: column;
-
-  #banner-title {
-    display: flex;
-    margin: auto;
-    height: 100%;
-    font-family: 'Anton', sans-serif;
-    font-size: 64px;
-    text-align: center;
-    line-height: 110%;
-
-    .banner-text {
-      margin-top: auto;
-    }
-
-    #animated-dot-container {
-      color: $primary;
-      width: 15px;
-      height: 64px;
-    }
-
-    #animated-dot {
-      position: relative;
-      animation: animated-dot 6s infinite ease-in-out;
-    }
-  }
-
-  .banner-icons {
-    display: flex;
-    height: 80px;
-    justify-content: center;
-    margin-top: 16px;
-    gap: 0.5rem;
-
-    > mat-icon {
-      width: auto;
-      height: auto;
-      font-size: 4rem;
-    }
-  }
+  flex-direction: row;
 }
 
 .login-form {
-  margin: 32px;
+  margin: 16px 32px 32px 32px;
   display: flex;
-  min-height: 300px;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 
   .login-form-card {
     > mat-card-content {
+      width: 300px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -68,66 +24,113 @@
     }
   }
 
-  .mat-form-field {
-    width: 256px;
-  }
-
   .warn-label {
-    width: 256px;
+    width: calc(80%);
     text-align: center;
     font-weight: 500;
     color: $warn;
+    line-height: 21px;
   }
 
   #email-input {
     margin-top: 16px;
+    width: calc(90%);
+  }
+
+  #password-input {
+    width: calc(90%);
   }
 
   #login-button {
     width: 80px;
+  }
+}
+
+.overview-panel {
+  display: flex;
+  width: 100%;
+  max-width: 578px;
+  min-height: calc(100% - 32px);
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  margin: 16px 0 16px 16px;
+  background: $primary-light;
+  color: #FFF;
+  font-family: 'Maven Pro', sans-serif;
+
+  .savings-logo {
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+    margin: 8px 0 0 8px;
+    width: 32px;
+    height: 32px;
+
+    > span {
+      font-weight: 500;
+      font-size: 16px;
+      margin: 0 0 4px 8px;
+    }
+  }
+
+  .overview-image {
+    width: 65%;
+    height: auto;
+  }
+
+  #description-headline {
+    width: 80%;
+    margin-top: 8vh;
+  }
+
+  #description {
+    width: 80%;
+    margin: 4vh 0 4vh 0;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+.login-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(100%);
+  height: max-content;
+  min-height: calc(100%);
+
+  .login-additional-text {
     margin-top: 8px;
+    font-size: 14px;
+    line-height: 21px;
+    opacity: 75%;
   }
+
 }
 
-@keyframes animated-dot {
-  0% {
-    opacity: 0;
-    transform: translate(0, -32px);
-  }
-  20% {
-    opacity: 1;
-    transform: translate(0, -6px);
-  }
-  90% {
-    opacity: 1;
-    transform: translate(0, -6px);
-  }
-  100% {
-    opacity: 0;
-    transform: (0, 24px);
-  }
+.login-progress-bar {
+  padding-top: 12px;
 }
 
-@media screen and (max-width: 677px) {
-  .banner-text {
-    font-size: 3rem;
+
+@media screen and (max-width: 700px) {
+
+  .login-page {
+    flex-direction: column;
   }
 
-  #animated-dot-container {
-    width: 12px !important;
+  .overview-panel {
+    min-height: unset;
+    max-width: unset;
+    width: calc(100% - 4vh);
+    margin: 2vh;
   }
 
-  .banner-icons > mat-icon {
-    font-size: 3rem !important;
-  }
-}
-
-@media screen and (max-width: 528px) {
-  .banner-text {
-    font-size: 2rem;
-  }
-
-  #animated-dot-container {
-    width: 8px !important;
+  .login-panel {
+    margin-top: 64px;
+    min-height: unset;
   }
 }

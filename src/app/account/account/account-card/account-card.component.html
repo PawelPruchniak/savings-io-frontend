@@ -1,5 +1,5 @@
 <div class="account-card">
-  <div *ngIf="accountState.loading$ | async as error">
+  <div *ngIf="accountState.loading$ | async">
     {{ 'loading...' }}
   </div>
   <div *ngIf="accountState.error$ | async as account">

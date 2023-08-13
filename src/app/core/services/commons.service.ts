@@ -6,7 +6,7 @@ import { ObjectState } from '@savings-io/shared/commons';
   providedIn: 'root',
 })
 export class CommonsService {
-  public prepareObjectState(content$: Observable<any>) {
+  public prepareObjectState(content$: Observable<unknown>): ObjectState<any> {
     const data$ = content$.pipe(shareReplay(1));
     return {
       content$: data$,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '@savings-io/shared/auth';
 import { Router } from '@angular/router';
 import { RouterPaths } from '@savings-io/router-paths';
@@ -14,16 +14,21 @@ export class LoginComponent {
 
   email: FormControl;
   password: FormControl;
-  hidePassword = true;
-  loginFailed = false;
+  isHidePassword = true;
+  isLoginFailed = false;
+  isLoginLoading = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {
     this.email = new FormControl('', [Validators.required, Validators.email]);
     this.password = new FormControl('', [Validators.required]);
   }
 
   login() {
     console.debug('Trying to login...');
+    this.isLoginLoading = true;
     this.resetLoginFailed();
     this.loginFormTouched();
 
@@ -44,19 +49,21 @@ export class LoginComponent {
     this.router
       .navigateByUrl(RouterPaths.BOARD)
       .then(() => console.debug('Navigate success'))
-      .catch((error) => console.debug('Navigate failed: ' + error));
+      .catch((error) => console.debug('Navigate failed: ' + error))
+      .finally(() => (this.isLoginLoading = false));
   }
 
   private onLoginFailed(): void {
     console.log('Login failed');
+    this.isLoginLoading = false;
 
     this.loginFormReset();
     this.loginFormTouched();
-    this.loginFailed = true;
+    this.isLoginFailed = true;
   }
 
   private resetLoginFailed(): void {
-    this.loginFailed = false;
+    this.isLoginFailed = false;
   }
 
   private loginFormTouched(): void {
@@ -69,7 +76,7 @@ export class LoginComponent {
   }
 
   toggleHidePassword(): void {
-    this.hidePassword = !this.hidePassword;
+    this.isHidePassword = !this.isHidePassword;
   }
 
   get isLoginDisabled(): boolean {
