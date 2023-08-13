@@ -5,7 +5,7 @@
         {{ 'Balance' }}
       </mat-card-title>
       <mat-divider class="divider"></mat-divider>
-      <mat-card-content id="balance">
+      <div id="balance">
         <div>
           <div *ngIf="userAccountState.content$ | async as userAccount">
             {{ userAccount.totalBalance + ' ' + userAccount.currency }}
@@ -16,7 +16,7 @@
             </mat-icon>
           </div>
         </div>
-      </mat-card-content>
+      </div>
     </mat-card-content>
     <mat-card-footer *ngIf="userAccountState.loading$ | async">
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>

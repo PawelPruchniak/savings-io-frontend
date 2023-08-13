@@ -4,7 +4,7 @@
       {{ savingsAccount.name }}
     </mat-card-title>
     <mat-divider class="divider op-75"></mat-divider>
-    <mat-card-content id="content">
+    <div id="content">
       <div id="balance">
         {{ savingsAccount.balance + ' ' + savingsAccount.currency }}
         <mat-icon
@@ -20,6 +20,6 @@
       <div *ngIf="showDescription" id="description">
         {{ savingsAccount.description }}
       </div>
-    </mat-card-content>
+    </div>
   </mat-card-content>
 </mat-card>

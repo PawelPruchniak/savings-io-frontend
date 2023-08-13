@@ -2,14 +2,9 @@
 
 .navigation-toolbar {
   height: 64px;
-  color: $primary;
 
   .navigation-tabs {
     width: calc(100% - 80px);
-  }
-
-  .navigation-logout {
-    width: 80px;
   }
 }
 
