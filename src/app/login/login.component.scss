@@ -57,7 +57,7 @@
   text-align: center;
   margin: 16px 0 16px 16px;
   background: $primary-light;
-  color: #FFF;
+  color: #fff;
   font-family: 'Maven Pro', sans-serif;
 
   .savings-logo {
@@ -108,16 +108,13 @@
     line-height: 21px;
     opacity: 75%;
   }
-
 }
 
 .login-progress-bar {
   padding-top: 12px;
 }
 
-
 @media screen and (max-width: 700px) {
-
   .login-page {
     flex-direction: column;
   }

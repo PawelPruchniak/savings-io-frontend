@@ -11,7 +11,7 @@ import { RouterPaths } from '@savings-io/router-paths';
 export class AppComponent {
   title = 'savings-io-frontend';
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(authService: AuthService, router: Router) {
     if (authService.isLoggedIn()) {
       router.navigateByUrl(RouterPaths.BOARD);
     } else {
